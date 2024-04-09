@@ -1,0 +1,41 @@
+what is socket.io?
+-> library that enables low latency, bidirectional and event based communication between a client and a server
+
+socketio connection can be established with different low level transports:
+
+HTTP long polling
+Web socket
+Web transport
+
+What are websocket?
+A WebSocket is a communication protocol that provides full-duplex communication channels over a single TCP connection. It enables real-time, event-driven connection between a client and a server.
+
+Unlike traditional HTTP software, which follows a request-response model, WebSockets allow two-way (bi-directional) communication. This means that the client and the server can send data to each other anytime without continuous polling.
+
+WebSockets are used for real-time, event-driven communication between clients and servers. They are particularly useful for building software applications requiring instant updates, such as real-time chat, messaging, and multiplayer games.
+
+In traditional HTTP, the client sends a request to the server, and the server responds with the requested data. This request-response model requires continuous polling from the client to the server, which can result in increased latency and decreased efficiency.
+
+On the other hand, WebSockets establish a persistent connection between the client and the server. This means that once the connection is established, the client and the server can send data to each other at any time without continuous polling requests. This allows realtime communication, where updates can be sent and received instantly.
+
+ Polling is a technique where the client repeatedly sends requests to the server until it updates. For example, all modern web browsers offer support for XMLHttpRequest, one of the original methods of polling servers.
+
+These earlier solutions were still not ideal for efficient real-time communication—short polling is intensive because, for every request, the non-payload data is re-sent and must be parsed, including the header HTML, the web URL, and other repetitive information that wastes resources.
+
+The next logical step to improve latency was HTTP long polling. When long polling, the client polls the server, and that connection remains open until the server has new data. The server sends the response with the relevant information, and then the client immediately opens another request, holding again until the next update. Long polling can hold a connection open for a maximum of 280 seconds before automatically sending another request. This method effectively emulates an HTTP server push.
+
+Long polling provides fast communication in many environments and is widely used, often as opposed to true push-based methods like WebSocket connections or Server Side Events (SSE). Long polling can seem intensive on the server side, as it requires continuous resources to hold a connection open, but it uses much less than repeatedly sending polling requests.
+
+
+What is WebTransport?
+WebTransport is a new web standard that allows developers to build real-time chat and messaging functionality into applications with improved scalability and security. It provides a low-latency and high-throughput connection between a client and servers over the web.
+
+Traditionally, real-time communication in web applications has relied on technologies like WebSockets or HTTP long polling. While these technologies have served their purpose, they have certain performance, scalability, and security limitations.
+
+WebTransport aims to overcome these limitations by introducing a new transport layer protocol- the QUIC transport protocol- specifically designed for real-time apps. This protocol provides several advantages over traditional protocols like TCP.
+
+One of the key benefits of WebTransport is its improved scalability. The QUIC protocol allows for multiplexing, meaning multiple data streams can be sent over a single connection. This eliminates the overhead of establishing multiple connections, reducing latency and improving efficiency.
+
+WebTransport also offers enhanced security features. It incorporates the security mechanisms of QUIC, including encryption and authentication, to ensure the confidentiality and integrity of data transmitted between clients and servers. This helps protect against common security threats, such as eavesdropping and tampering.
+
+Additionally, WebTransport supports various essential features for real-time applications, such as flow control, prioritization, and reliable delivery. These features allow developers to optimize the performance and responsiveness of their applications, providing a better user experience.
